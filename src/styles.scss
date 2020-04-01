@@ -337,11 +337,17 @@ body {
       transform: translateX(0%);
     }
   }
+
 @media (min-height: 769px) and (min-width: 1600px) {
     .menu-wrapper{
         height: 804px;
     }
 }
+// @media (min-height: 789px) and (min-width: 1600px) {
+//   .menu-wrapper{
+//       height: 804px;
+//   }
+// }
 @media (min-height: 992px) and (min-width: 1600px) {
   .menu-wrapper{
       height: 920px;

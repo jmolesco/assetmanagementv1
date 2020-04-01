@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import {environment} from '@environment/environment';
 import  {BaseRequestService, ChildRequestService, constantKeywords} from '@shared/shared.module';
 import {urlInterface} from '@sharedInterface/urlInterface';
+import { filter } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -44,7 +45,8 @@ export class HarddiskService {
      searchBy:parameters.searchBy,
      keyword:parameters.keyword,
      orderBy:parameters.orderBy,
-     orderType:parameters.orderType
+     orderType:parameters.orderType,
+     filterBy:parameters.filterBy
    };  
    let url = this.httpChildeRequest.urlGeneratorGetAll(urlInputs);
    return this.httpBaseRequest.getResponseCall(url);

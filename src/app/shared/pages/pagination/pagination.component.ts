@@ -69,7 +69,7 @@ export class PaginationComponent implements OnInit {
  loadList():void{
    let begin = ((this.currentPage - 1) * this.numberPerPage);
    let end = begin + this.numberPerPage;
-   console.log("Begin : " + begin + " End : " + end );
+   //console.log("Begin : " + begin + " End : " + end );
   //  if(this.list.length < this.numberPerPage)
   //  {
   //    this.list.splice(end+1, end)

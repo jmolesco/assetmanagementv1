@@ -44,8 +44,9 @@ export class VideocardService {
       searchBy:parameters.searchBy,
       keyword:parameters.keyword,
       orderBy:parameters.orderBy,
-      orderType:parameters.orderType
-    };  
+      orderType:parameters.orderType,
+      filterBy:parameters.filterBy
+    };   
     let url = this.httpChildeRequest.urlGeneratorGetAll(urlInputs);
     return this.httpBaseRequest.getResponseCall(url);
   }

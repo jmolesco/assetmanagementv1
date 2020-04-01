@@ -10,10 +10,10 @@ import {HarddiskModule} from '@harddisk/harddisk.module';
 import {MemoryModule} from '@memory/memory.module';
 import {VideocardModule} from '@videocard/videocard.module';
 import {AssetModule} from '@asset/asset.module';
-
+import {UserModule} from '@user/user.module';
 @NgModule({
   declarations: [DashboardComponent],
-  exports:[DashboardComponent,CategoryModule, ManufacturerModule, SupplierModule, ModelModule,HarddiskModule, ProcessorModule,MemoryModule,VideocardModule],
+  exports:[DashboardComponent,CategoryModule, ManufacturerModule, SupplierModule, ModelModule,HarddiskModule, ProcessorModule,MemoryModule,VideocardModule, UserModule],
   imports: [
     CommonModule,
     CategoryModule,
@@ -24,7 +24,8 @@ import {AssetModule} from '@asset/asset.module';
     HarddiskModule,
     MemoryModule,
     VideocardModule,
-    AssetModule
+    AssetModule,
+    UserModule
   ]
 })
 export class PagesModule { }

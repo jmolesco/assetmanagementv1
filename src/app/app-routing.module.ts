@@ -10,6 +10,7 @@ import {HarddiskModule} from '@harddisk/harddisk.module';
 import {MemoryModule} from '@memory/memory.module';
 import {VideocardModule} from '@videocard/videocard.module';
 import {AssetModule} from '@asset/asset.module';
+import {UserModule} from '@user/user.module';
 const routes: Routes = [
   {
     path:"",
@@ -51,6 +52,10 @@ const routes: Routes = [
   {
     path:"asset",
     loadChildren:()=> import("@pages/pages.module").then(m=>AssetModule)
+  },
+  {
+    path:"user",
+    loadChildren:()=> import("@pages/pages.module").then(m=>UserModule)
   }
 
 

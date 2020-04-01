@@ -28,7 +28,8 @@
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         </option>
                                         <option value="1">ID</option>
-                                        <option value="2">Name</option>
+                                        <option value="2">Asset Tag</option>
+                                        <option value="3">Name</option>
                                     </select>
                                 </div>
                             </div>
@@ -38,6 +39,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="level-item">
                         <div class="field has-addons">
                             <div class="control is-expanded">
@@ -62,9 +64,31 @@
                 <div class="level-right bd-structure-item" title="level-right">
                     <div class="level-item">
                         <div class="field has-addons">
+                            <div class="control is-expanded">
+                                <div class="select is-fullwidth">
+                                    <select name="filterBy" [(ngModel)]="filterBy" (change)="submitSearch()">
+                                        <option value="0">Status
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;
+                                        </option>
+                                        <option value="1">Available</option>
+                                        <option value="2">Archive</option>
+                                        <option value="3">Deployed</option>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="control">
-                                <input class="input" (keyup)="submitSearch()" type="text"
-                                    placeholder="Search HardDisk Size" [(ngModel)]="keyword">
+                                <button type="submit" class="button is-primary">Filter By
+                                    <span style="visibility: hidden;">es</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="level-item">
+                        <div class="field has-addons">
+                            <div class="control">
+                                <input class="input" (keyup)="submitSearch()" type="text" placeholder="Type any keyword"
+                                    [(ngModel)]="keyword">
                             </div>
                             <div class="control">
                                 <a class="button is-primary"><span style="visibility: hidden;">e</span>
@@ -81,63 +105,66 @@
                 </p>
             </div>
             <div class="column is-12">
-                <table class="table is-fullwidth is-hoverable">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Serial No</th>
-                            <th>Name</th>
-                            <th>Assigned To</th>
-                            <th>Category</th>
-                            <th>Manufacturer</th>
-                            <th>Supplier</th>
-                            <th>Asset Tag</th>
-                            <th>Status</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let asset of detailList; index as i">
-                            <td scope="row">{{ asset.id }}</td>
-                            <td>
-                                {{ asset.serialNo }}
-                            </td>
-                            <td>
-                                {{ asset.name }}
-                            </td>
-                            <td>
-                                {{ asset.assignedTo }}
-                            </td>
-                            <td>
-                                {{ asset.categoryName }}
-                            </td>
-                            <td>
-                                {{ asset.manufacturerName }}
-                            </td>
-                            <td>
-                                {{ asset.supplierName }}
-                            </td>
-                            <td>
-                                {{ asset.assetTag }}
-                            </td>
-                            <td>
-                                <span [ngClass]="['tag',(asset.statusType===statusTagAvailable)===true?'is-success':(asset.statusType===statusTagArchive)===true?'is-danger':'is-link']">{{ asset.statusType }}</span>
-                            </td>
-                            <td>
-                                <div class="buttons">
-                                    <button data-tooltip="Edit" class="button is-primary" routerLink="{{asset.id}}"><i
-                                            class="far fa-edit"></i></button>
-                                    <button data-tooltip='Delete' class="button is-danger"
-                                    [disabled] = "(asset.statusType===statusTagArchive)?true:false"
-                                
-                                        (click)="submitDeleteRecord(asset.id)"><i class="far fa-trash-alt"></i></button>
-                                </div>
+                <div class="table-container">
+                    <table class="table is-fullwidth is-hoverable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Serial No</th>
+                                <th>Name</th>
+                                <th>Assigned To</th>
+                                <th>Category</th>
+                                <th>Manufacturer</th>
+                                <th>Supplier</th>
+                                <th>Asset Tag</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let asset of detailList; index as i">
+                                <td scope="row">{{ asset.id }}</td>
+                                <td>
+                                    {{ asset.serialNo }}
+                                </td>
+                                <td>
+                                    {{ asset.name }}
+                                </td>
+                                <td>
+                                    {{ asset.assignedTo }}
+                                </td>
+                                <td>
+                                    {{ asset.categoryName }}
+                                </td>
+                                <td>
+                                    {{ asset.manufacturerName }}
+                                </td>
+                                <td>
+                                    {{ asset.supplierName }}
+                                </td>
+                                <td>
+                                    {{ asset.assetTag }}
+                                </td>
+                                <td>
+                                    <span
+                                        [ngClass]="['tag',(asset.statusType===statusTagAvailable)===true?'is-success':(asset.statusType===statusTagArchive)===true?'is-danger':'is-link']">{{ asset.statusType }}</span>
+                                </td>
+                                <td>
+                                    <div class="buttons">
+                                        <button data-tooltip="Edit" class="button is-primary"
+                                            routerLink="{{asset.id}}"><i class="far fa-edit"></i></button>
+                                        <button data-tooltip='Delete' class="button is-danger"
+                                            [disabled]="(asset.statusType===statusTagArchive)?true:false"
+                                            (click)="submitDeleteRecord(asset.id)"><i
+                                                class="far fa-trash-alt"></i></button>
+                                    </div>
 
-                            </td>
+                                </td>
 
-                        </tr>
-                    </tbody>
-                </table>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <div class="column is-8 is-offset-2">
                     <app-pagination *ngIf="totalPageList>0" [paginationTotal]="totalPageList"></app-pagination>
                 </div>
