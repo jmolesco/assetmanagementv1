@@ -1,0 +1,279 @@
+<div class="p-1">
+    <div>
+        <div class="breadcrumbme-menu">
+            <nav class="breadcrumb has-arrow-separator has-text-weight-medium" aria-label="breadcrumbs">
+                <ul>
+                    <li><a routerLink="/"> Dashboard</a></li>
+                    <li><a routerLink="/asset" aria-current="page">Asset</a></li>
+                    <li class="is-active"><a href="#" aria-current="page">Detail</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="page-body">
+        <article class="panel is-primary" style="border-radius: 0px;padding: 1em;">
+            <p class="panel-heading" style="border-radius: 0px;font-weight: 1;">
+                {{actionType}} Asset
+            </p>
+            <div class="panel-block">
+                <div class="column column is-6 is-offset-3" *ngIf="functionStatus">
+                    <div class="notification is-primary is-light has-text-centered">
+                        <button class="delete"></button>
+                        <strong>Record has been successfully {{functionUsed}}</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="columns is-variable" >
+                <br>
+                <div  class="column is-6-desktop is-6-tablet" >
+                    <div class="field" *ngIf="functionState">
+                        <label class="label">Asset ID</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="HardDisk ID" [(ngModel)]="id" name="id"
+                                [disabled]="true">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Serial No</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Serial No" [(ngModel)]="serialNo"
+                                #serialNoInput="ngModel" name="serialNo" required />
+                        </div>
+                        <p class="help is-danger" *ngIf="serialNoInput.invalid && serialNoInput.touched">
+                            Serial No is required
+                        </p>
+                    </div>
+                    <div class="field">
+
+                        <label class="label">Name</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Name" [(ngModel)]="name"
+                                #nameInput="ngModel" name="name" required />
+                        </div>
+                        <p class="help is-danger" *ngIf="nameInput.invalid && nameInput.touched">
+                            Name is required
+                        </p>
+                    </div>
+                    <div class="field">
+                        <label class="label">Asset Tag</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Asset Tag" [(ngModel)]="assetTag"
+                                #assetTagInput="ngModel" name="assetTag" required />
+                        </div>
+                        <p class="help is-danger" *ngIf="assetTagInput.invalid && assetTagInput.touched">
+                            Asset Tag is required
+                        </p>
+                    </div>
+                    <div class="field">
+                        <label class="label">Assigned To</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Assigned To" [(ngModel)]="assignedTo"
+                                #assignedToInput="ngModel" name="assignedTo" required />
+                        </div>
+                        <p class="help is-danger" *ngIf="assignedToInput.invalid && assignedToInput.touched">
+                            Assigned To is required
+                        </p>
+                    </div>
+                    <div class="field">
+                        <label class="label">Supplier Name</label>
+                        <div class="control">
+                            <div class="select is-fullwidth">
+                                <select [(ngModel)]="supplierId" #supplierIdInput="ngModel" name="supplierId">
+                                    <option value="0" selected>--Choose your Supplier--</option>  
+                                    <option *ngFor="let supplier of supplierList"  
+                                            value={{supplier.id}} 
+
+                                            >  
+                                        {{supplier.name}}  
+                                    </option>  
+                                </select>
+                            </div>
+                        </div>
+                        <p class="help is-danger" *ngIf="supplierIdInput.invalid && supplierIdInput.touched">
+                            Supplier Name is required
+                        </p>
+                    </div>
+                    <div class="field">
+                        <label class="label">Model Name</label>
+                        <div class="control">
+                            <div class="select">
+                                <select [(ngModel)]="modelId" #modelIdInput="ngModel" name="modelId">
+                                </select>
+                            </div>
+                        </div>
+                        <p class="help is-danger" *ngIf="modelIdInput.invalid && modelIdInput.touched">
+                            Model Name is required
+                        </p>
+                    </div>
+                    <div class="field">
+                        <label class="label">Manufacturer Name</label>
+                        <div class="control">
+                            <div class="select">
+                                <select [(ngModel)]="manufacturerId" #manufacturerIdIdInput="ngModel"
+                                    name="manufacturerId">
+                                </select>
+                            </div>
+                        </div>
+                        <p class="help is-danger"
+                            *ngIf="manufacturerIdIdInput.invalid && manufacturerIdIdInput.touched">
+                            Manufacturer Name is required
+                        </p>
+                    </div>
+                    <div class="field">
+                        <label class="label">Category Name</label>
+                        <div class="control">
+                            <div class="select">
+                                <select [(ngModel)]="categoryId" #categoryIdIdInput="ngModel" name="categoryId">
+                                </select>
+                            </div>
+                        </div>
+                        <p class="help is-danger" *ngIf="categoryIdIdInput.invalid && categoryIdIdInput.touched">
+                            Category Name is required
+                        </p>
+                    </div>
+                    <div class="field">
+                        <label class="label">Purchase Date</label>
+                        <div class="control">
+                            <input class="input" type="date" placeholder="Purchase Date" [(ngModel)]="purchaseDate"
+                                #purchaseDateInput="ngModel" name="purchaseDate" required />
+                        </div>
+                        <p class="help is-danger" *ngIf="purchaseDateInput.invalid && purchaseDateInput.touched">
+                            Purchase Date is required
+                        </p>
+                    </div>
+                    <div class="field">
+                        <label class="label">Purchase Cost</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Purchase Cost" [(ngModel)]="purchaseCost"
+                                #purchaseCostInput="ngModel" name="purchaseCost" required />
+                        </div>
+                        <p class="help is-danger" *ngIf="purchaseCostInput.invalid && purchaseCostInput.touched">
+                            Purchase Cost is required
+                        </p>
+                    </div>
+                    
+                </div>
+                <div  class="column is-6-desktop is-6-tablet">
+                    <div class="field">
+                        <label class="label">Warranty</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Warranty" [(ngModel)]="warranty"
+                                #warrantyInput="ngModel" name="warranty" required />
+                        </div>
+                        <p class="help is-danger" *ngIf="warrantyInput.invalid && warrantyInput.touched">
+                            Warranty is required
+                        </p>
+                    </div>
+                    <div class="field">
+                        <label class="label">PO No</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="PO No" [(ngModel)]="poNo"
+                                #poNoInput="ngModel" name="poNo" required />
+                        </div>
+                        <p class="help is-danger" *ngIf="poNoInput.invalid && poNoInput.touched">
+                            PO No is required
+                        </p>
+                    </div>
+                    <div class="field">
+                        <label class="label">Battery</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Battery" [(ngModel)]="battery"
+                                #batteryInput="ngModel" name="battery" required />
+                        </div>
+                        <p class="help is-danger" *ngIf="batteryInput.invalid && batteryInput.touched">
+                            Battery is required
+                        </p>
+                    </div>
+                    <div class="field">
+                        <label class="label">Adapter</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Adapter" [(ngModel)]="adapter"
+                                #adapterInput="ngModel" name="adapter" required />
+                        </div>
+                        <p class="help is-danger" *ngIf="adapterInput.invalid && adapterInput.touched">
+                            Adapter is required
+                        </p>
+                    </div>
+                    <div class="field">
+                        <label class="label">Delivery Date</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Delivery Date" [(ngModel)]="deliveryDate"
+                                #deliveryDateInput="ngModel" name="deliveryDate" required />
+                        </div>
+                        <p class="help is-danger" *ngIf="deliveryDateInput.invalid && deliveryDateInput.touched">
+                            Delivery Date is required
+                        </p>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">DR No</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="PO No" [(ngModel)]="drNo"
+                                #drNoInput="ngModel" name="drNo" required />
+                        </div>
+                        <p class="help is-danger" *ngIf="drNoInput.invalid && drNoInput.touched">
+                            DR No is required
+                        </p>
+                    </div>
+                    <div class="field">
+                        <label class="label">SI No</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="SI No" [(ngModel)]="siNo"
+                                #siNoInput="ngModel" name="siNo" required />
+                        </div>
+                        <p class="help is-danger" *ngIf="siNoInput.invalid && siNoInput.touched">
+                            SI No is required
+                        </p>
+                    </div>
+                    <div class="field">
+                        <label class="label">Mac Address</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Mac Address" [(ngModel)]="macAddress"
+                                #macAddressInput="ngModel" name="macAddress" required />
+                        </div>
+                        <p class="help is-danger" *ngIf="macAddressInput.invalid && macAddressInput.touched">
+                            Mac Address is required
+                        </p>
+                    </div>
+                    <div class="field">
+                        <label class="label">IP Address</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="IP Address" [(ngModel)]="ipAddress"
+                                #ipAddressInput="ngModel" name="ipAddress" required />
+                        </div>
+                        <p class="help is-danger" *ngIf="ipAddressInput.invalid && ipAddressInput.touched">
+                            IP Address is required
+                        </p>
+                    </div>
+                    <div class="field">
+                        <label class="label">Status</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Status" [(ngModel)]="status"
+                                #statusInput="ngModel" name="status" required />
+                        </div>
+                        <p class="help is-danger" *ngIf="statusInput.invalid && statusInput.touched">
+                            Status is required
+                        </p>
+                    </div>
+
+
+
+                    <div class="field">
+                        <label class="label">Notes</label>
+                        <div class="control">
+                            <textarea class="input" rows="15" placeholder="Notes" [(ngModel)]="notes"
+                                #notesInput="ngModel" name="notes" required ></textarea>
+                        </div>
+                        <p class="help is-danger" *ngIf="notesInput.invalid && notesInput.touched">
+                            Notes is required
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-block">
+                &nbsp;
+            </div>
+        </article>
+    </div>
+</div>

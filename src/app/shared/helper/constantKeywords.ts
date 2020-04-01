@@ -1,0 +1,20 @@
+export const constantKeywords = {
+    category        :   "categories",
+    manufacturer    :   "manufacturers",
+    harddisk        :   "sizes/harddisk",
+    memory          :   "sizes/memory",
+    model           :   "models",
+    processor       :   "processors",
+    supplier        :   "suppliers",
+    videocard       :   "sizes/videocard",
+    asset           :   "assets",
+    recordAdded     :   "added",
+    recordEdited    :   "updated",
+    recordDeleted   :   "deleted",
+    delayTime       :   2300,
+    actionInsert    :   "New",
+    actionEdit      :   "Edit",
+    Available       :   "Available",
+    Archive         :   "Archive",
+    Deployed        :   "Deployed"
+}

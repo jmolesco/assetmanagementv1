@@ -28,6 +28,8 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bulma/css/bulma.min.css",
+              "node_modules/bulma-tooltip/dist/css/bulma-tooltip.min.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -123,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "assetmanagementv1"
+    }
+  },
+  "defaultProject": "assetmanagementv1",
+  "cli": {
+    "analytics": "faaf8f87-96dd-48ea-9032-8d6a27db288b"
+  }
 }

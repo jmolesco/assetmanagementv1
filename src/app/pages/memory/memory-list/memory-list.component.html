@@ -1,0 +1,134 @@
+<div class="p-1">
+    <!-- <div class="columns is-variable is-desktop">
+    <div class="column">
+      <h1 class="title">
+        <nav class="breadcrumb has-arrow-separator" aria-label="breadcrumbs">
+          <ul>
+            <li><a routerLink="/"> Dashboard</a></li>
+            <li class="is-active"><a href="#" aria-current="page">Maintenance</a></li>
+            <li class="is-active"><a href="#" aria-current="page">Manufacturer</a></li>
+          </ul>
+        </nav> 
+      </h1>
+    </div>
+  </div> -->
+  <div>
+    <div class="breadcrumbme-menu">
+      <nav class="breadcrumb has-arrow-separator has-text-weight-medium" aria-label="breadcrumbs">
+        <ul>
+          <li><a routerLink="/"> Dashboard</a></li>
+          <li><a routerLink="/memory" aria-current="page">Maintenance</a></li>
+          <li class="is-active"><a href="#" aria-current="page">Memory</a></li>
+        </ul>
+      </nav> 
+  </div>
+  </div>
+    <div class="page-body" >
+        <article class="panel is-primary" style="border-radius: 0px;padding: 1em;">
+            <p class="panel-heading" style="border-radius: 0px;font-weight: 1;">
+                List of Memory
+            </p>
+            <br />
+            <nav class="level bd-structure-item bd-is-structure-container" title="level">
+              <div class="level-left bd-structure-item" title="level-left">
+                <div class="level-item">
+                  <div class="field has-addons">
+                    <div class="control is-expanded">
+                      <div class="select is-fullwidth">
+                        <select name="orderBy" [(ngModel)]="orderBy" (change)="submitSearch()">
+                          <option value="0">Choose
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          </option>
+                          <option value="1">ID</option>
+                          <option value="2">Name</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="control">
+                      <button type="submit" class="button is-primary">Order By
+                        <span style="visibility: hidden;">es</span></button>
+                    </div>
+                  </div>
+                </div>
+                <div class="level-item">
+                  <div class="field has-addons">
+                    <div class="control is-expanded">
+                      <div class="select is-fullwidth">
+                        <select name="orderType" [(ngModel)]="orderType" (change)="submitSearch()">
+                          <option value="0">Choose
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      
+                          </option>
+                          <option value="2">Ascending</option>
+                          <option value="1">Descending</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="control">
+                      <button type="submit" class="button is-primary">Order Type</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="level-right bd-structure-item" title="level-right">
+                <div class="level-item">
+                  <div class="field has-addons">
+                    <div class="control">
+                      <input class="input" (keyup)="submitSearch()" type="text" placeholder="Search Memory Size" [(ngModel)]="keyword">
+                    </div>
+                    <div class="control">
+                      <a class="button is-primary"><span style="visibility: hidden;">e</span>
+                        Search<span style="visibility: hidden;">ese</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <div class="panel-block">
+              <p class="control has-icons-left">
+                <button class="button is-info is-fullwidth" routerLink="new">Add New Memory</button>
+              </p>
+            </div>
+            <div class="column is-8 is-offset-2">
+              <table class="table is-fullwidth is-hoverable">
+                <thead>
+                  <tr>
+                    <th>&nbsp;</th>
+                    <th>ID</th>
+                    <th>Memory Size</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let memory of memoryList; index as i">
+                    <th>&nbsp;</th>
+                    <th scope="row">{{ memory.id }}</th>
+                    <td>
+                      {{ memory.size }}
+                    </td>
+                    <td>
+                      <div class="buttons">
+                        <button class="button is-primary" routerLink="{{memory.id}}"><i class="far fa-edit"></i>
+                        </button>
+                        <button class="button is-danger" (click)="submitDeleteRecord(memory.id)"><i class="far fa-trash-alt"></i></button>
+                      </div>
+          
+                    </td>
+          
+                  </tr>
+                </tbody>
+              </table>
+              <div class="column is-8 is-offset-2">
+                <app-pagination *ngIf="totalPageList>0" [paginationTotal]="totalPageList"></app-pagination>
+              </div>
+          
+            </div>
+            <div class="panel-block">
+                &nbsp;
+            </div>
+        </article>
+    </div>
+</div>

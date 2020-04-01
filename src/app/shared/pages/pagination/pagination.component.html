@@ -1,0 +1,13 @@
+<nav class="pagination is-small is-rounded" role="navigation" aria-label="pagination">
+    <button type="button" class="pagination-previous" (click)="previousPage()" [disabled]="previousState">
+      Previous</button>
+    <button type="button" class="pagination-next" (click)="nextPage()" [disabled]="nextState">Next page</button>
+    <ul class="pagination-list" *ngFor="let item of pageList; index as i">
+      <li>
+        <a class="pagination-link"
+             aria-label="Goto page i" 
+            (click)="submitRequestPage(pageList[i])">{{pageList[i]}}
+        </a>
+      </li>
+    </ul>
+  </nav>

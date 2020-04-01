@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  //url:"http://jmolesco-001-site1.ctempurl.com/api/"
+  url:"http://localhost:62236/api/"
 };
 
 /*

@@ -1,0 +1,64 @@
+<div class="p-1">
+    <div>
+        <div class="breadcrumbme-menu">
+            <nav class="breadcrumb has-arrow-separator has-text-weight-medium" aria-label="breadcrumbs">
+                <ul>
+                    <li><a routerLink="/"> Dashboard</a></li>
+                    <li><a routerLink="/model" aria-current="page">Maintenance</a></li>
+                    <li><a routerLink="/model" aria-current="page">Model</a></li>
+                    <li class="is-active"><a href="#" aria-current="page">Detail</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="page-body">
+        <article class="panel is-primary" style="border-radius: 0px;padding: 1em;">
+            <p class="panel-heading" style="border-radius: 0px;font-weight: 1;">
+                Maintenance &raquo; {{actionType}} Model
+            </p>
+            <div class="panel-block">
+                <div class="column column is-6 is-offset-3" *ngIf="functionStatus">
+                    <div class="notification is-primary is-light has-text-centered">
+                        <button class="delete"></button>
+                        <strong>Record has been successfully {{functionUsed}}</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column column is-6 is-offset-3">
+                <form (ngSubmit)="functionState===false?submitInsertRecord():submitEditRecord()" #modelForm="ngForm">
+                    <div class="field" *ngIf="functionState">
+                        <label class="label">Model ID</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Model ID" [(ngModel)]="id" name="id"
+                                [disabled]="true">
+                        </div>
+                        <!-- <p class="help">Model ID is required</p> -->
+                    </div>
+                    <div class="field">
+
+                        <label class="label">Model Name</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Model Name" [(ngModel)]="name"
+                                #nameInput="ngModel" name="name" required />
+                        </div>
+                        <p class="help is-danger" *ngIf="nameInput.invalid && nameInput.touched">
+                            Model Name is required
+                        </p>
+                    </div>
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button class="button is-link" [disabled]="modelForm.invalid">Submit Record</button>
+                        </div>
+                        <div class="control">
+                            <button class="button is-link is-light" routerLink="/model">Go Back</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-block">
+                &nbsp;
+            </div>
+        </article>
+    </div>
+</div>

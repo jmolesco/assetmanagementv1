@@ -1,1 +1,399 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+  background-color: #efefef;
+}
+.page-body{
+  background-color: white;
+}
+.px-1,
+.p-1 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+.py-1,
+.p-1 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.box-shadow-y {
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.05);
+}
+.breadcrumbme-menu{
+  padding-top: 1.0em;padding-bottom: .18em;
+}
+
+.menu-container {
+  position: fixed;
+  bottom: 0;
+  margin: auto;
+  min-width: 300px;
+  z-index: 10;
+  background-color: transparent;
+  transform: translateX(-100%);
+  transition: all ease 0.5s;
+}
+
+.menu-container.active {
+  transform: translateX(0%);
+}
+.icon {
+  height: 30px;
+  width: 30px;
+  vertical-align: baseline;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.toggler {
+  margin-left: 0;
+  cursor: pointer;
+}
+
+/****MOBILE PHONE VIEW
+    AUTHOR: JOHN MARK OLESCO
+    DATE CREATED: MARCH 26, 2020
+
+
+
+***/
+
+
+  @media  (min-height: 480px) and (min-width: 320px) {
+    .menu-wrapper{    
+        height: 410px;
+    } 
+  }
+  @media  (min-height: 533px) and (min-width: 320px) {
+    .menu-wrapper{    
+        height: 462px;
+    } 
+  }
+  @media  (min-height: 568px) and (min-width: 320px) {
+    .menu-wrapper{    
+        height: 496px;
+    } 
+  }
+  @media (min-height: 600px) and (min-width: 360px) {
+    .menu-wrapper{
+        height: 530px;
+    }
+  }
+  @media (min-height: 640px) and (min-width: 360px) {
+    .menu-wrapper{
+        height: 569px;
+    }
+  }
+  @media (min-height: 740px) and (min-width: 360px) {
+    .menu-wrapper{
+        height: 669px;
+    }
+  }
+  @media  (min-height: 667px) and (min-width: 375px) {
+    .menu-wrapper{
+        height: 645px;
+    } 
+  }
+  @media  (min-height: 812px) and (min-width: 375px) {
+    .menu-wrapper{
+        height: 740px;
+    } 
+  }
+  @media  (min-height: 640px) and (min-width: 384px) {
+    .menu-wrapper{
+        height: 570px;
+    } 
+  }
+  @media  (min-height: 695px) and (min-width: 390px) {
+    .menu-wrapper{
+        height: 625px;
+    } 
+  }
+  @media  (min-height: 786px) and (min-width: 393px) {
+    .menu-wrapper{
+        height: 718px;
+    } 
+  }
+  @media (min-height: 640px) and (min-width: 400px) {
+    .menu-wrapper{
+        height: 570px;
+    }
+  }
+  @media (min-height: 731px) and (min-width: 411px) {
+    .menu-wrapper{
+        height: 659px;
+    }
+  }
+  @media (min-height: 690px) and (min-width: 412px) {
+    .menu-wrapper{
+        height: 619px;
+    }
+  }
+  @media (min-height: 860px) and (min-width: 412px) {
+    .menu-wrapper{
+        height: 800px;
+    }
+  }
+  @media (min-height: 736px) and (min-width: 414px) {
+    .menu-wrapper{
+        height: 664px;
+    }
+  }
+  @media (min-height: 896px) and (min-width: 414px) {
+    .menu-wrapper{
+        height: 825px;
+    }
+  }
+  @media (min-height: 768px) and (min-width: 432px) {
+    .menu-wrapper{
+        height: 698px;
+    }
+  }
+  @media  (min-height: 800px) and (min-width: 480px) {
+    .menu-wrapper{
+        height: 729px;
+    }
+  }
+
+  @media  (min-height: 853px) and (min-width: 480px) {
+    .menu-wrapper{
+        height: 780px;
+    }
+  }
+  
+  @media  (min-height: 896px) and (min-width: 480px) {
+    .menu-wrapper{
+        height: 825px;
+    }
+  }
+
+
+/*** TABLET AND TELEVISION VIEW 
+     AUTHOR : JOHN MARK OLESCO
+     DATE CREATED : MARCH 26, 2020
+***/
+  @media  (min-height: 504px) and (min-width: 504px) {
+    .menu-wrapper{
+        height: 434px;
+    }
+  }
+  @media  (min-height: 960px) and (min-width: 600px) {
+    .menu-wrapper{
+        height: 888px;
+    }
+  }
+  @media  (min-height: 1024px) and (min-width: 600px) {
+    .menu-wrapper{
+        height: 952px;
+    }
+  }
+@media  (min-height: 966px) and (min-width: 604px) {
+    .menu-wrapper{
+        height: 895px;
+    }
+  }
+
+@media (min-height: 480px) and (min-width: 640px) {
+    .menu-wrapper{
+      height: 409px;
+    }
+}
+@media (min-height: 1024px) and (min-width: 640px) {
+    .menu-wrapper{
+      height: 953px;
+    }
+}
+@media (min-height: 576px) and (min-width: 720px) {
+    .menu-wrapper{
+      height: 506px;
+    }
+}
+@media (min-height: 1280px) and (min-width: 720px) {
+    .menu-wrapper{
+      height: 1209px;
+    }
+}
+@media (min-height: 1366px) and (min-width: 766px) {
+    .menu-wrapper{
+      height: 1295px;
+    }
+}
+
+@media (min-height: 360px) and (min-width: 768px) {
+    .menu-wrapper{
+        height: 290px;
+    }
+  }
+
+@media (min-height: 1024px) and (min-width: 768px) {
+    .menu-wrapper{
+      height: 954px;
+    }
+}
+@media (min-height: 1366px) and (min-width: 768px) {
+    .menu-wrapper{
+        height: 1294px;
+    }
+  }
+@media  (min-height: 568px) and (min-width: 991px) {
+    .menu-wrapper{
+        height: 497px;
+    }
+  }
+@media (min-height: 1280px) and (min-width: 991px) {
+    .menu-wrapper{
+        height: 1209px;
+    }
+    .menu-container {
+      width: 25%;
+      min-width: auto;
+      transform: translateX(0%);
+    }
+  }
+/*** DESKTOP VIEW 
+     AUTHOR : JOHN MARK OLESCO
+     DATE CREATED : MARCH 26, 2020
+***/
+@media (min-height: 1280px) and (min-width: 800px) {
+    .menu-wrapper{
+        height: 1208px;
+    }
+    .menu-container {
+        width: 25.5%;
+        min-width: auto;
+        transform: translateX(0%);
+      }   
+  }
+@media (min-height: 600px) and (min-width: 1024px) {
+    .menu-wrapper{
+        height: 529px;
+    }
+    .menu-container {
+      width: 17%;
+      min-width: auto;
+      transform: translateX(0%);
+    }
+  }
+@media (min-height: 768px) and (min-width: 1024px) {
+  .menu-wrapper{
+    height: 696px;
+  }
+  .menu-container {
+    width: 16.6667%;
+    min-width: auto;
+    transform: translateX(0%);
+  }
+}
+
+@media (min-height: 1366px) and (min-width: 1024px) {
+    .menu-wrapper{
+        height: 1295px;
+    }
+  }
+  @media (min-height: 1440px) and (min-width: 1024px) {
+    .menu-wrapper{
+      height: 1370px;
+    }
+  }
+  @media (min-height: 720px) and (min-width: 1280px) {
+    .menu-wrapper{
+        height: 649px;
+    }
+    .menu-container {
+      width: 16.6667%;
+      min-width: auto;
+      transform: translateX(0%);
+    }
+  }
+@media (min-height: 800px) and (min-width: 1280px) {
+    .menu-wrapper{
+        height: 727px;
+    }
+    .menu-container {
+      width: 16.6667%;
+      min-width: auto;
+      transform: translateX(0%);
+    }
+  }
+@media (min-height: 768px) and (min-width: 1366px) {
+    .menu-wrapper{
+        height: 694px;
+    }
+    .menu-container {
+      width: 16.6667%;
+      min-width: auto;
+      transform: translateX(0%);
+    }
+  }
+
+@media (min-height: 900px) and (min-width: 1440px) {
+    .menu-wrapper{
+        height: 826px;
+    }
+    .menu-container {
+      width: 16.6667%;
+      min-width: auto;
+      transform: translateX(0%);
+    }
+  }
+@media (min-height: 769px) and (min-width: 1600px) {
+    .menu-wrapper{
+        height: 804px;
+    }
+}
+@media (min-height: 992px) and (min-width: 1600px) {
+  .menu-wrapper{
+      height: 920px;
+  }
+}
+@media (min-height: 2560px) and (min-width: 1600px) {
+    .menu-wrapper{
+        height: 2490px;
+    }
+}
+@media (min-height: 1050px) and (min-width: 1680px) {
+    .menu-wrapper{
+        height: 979px;
+    }
+}
+@media (min-height: 1080px) and (min-width: 1920px) {
+    .menu-wrapper{
+        height: 1009px;
+    }
+}
+@media (min-height: 1200px) and (min-width: 1920px) {
+    .menu-wrapper{
+        height: 1128px;
+    }
+}
+@media (min-height: 1200px) and (min-width: 1920px) {
+    .menu-wrapper{
+        height: 1128px;
+    }
+}
+@media (min-height: 1440px) and (min-width: 2560px) {
+    .menu-wrapper{
+        height: 1366px;
+    }
+}
+@media (min-height: 2160px) and (min-width: 3840px) {
+    .menu-wrapper{
+        height: 2086px;
+    }
+}
+@media (min-height: 2034px) and (min-width: 4096px) {
+    .menu-wrapper{
+        height: 2230px;
+    }
+}
+@media (min-height: 2880px) and (min-width: 5120px) {
+    .menu-wrapper{
+        height: 2810px;
+    }
+}
+@media (min-height: 4320px) and (min-width: 7680px) {
+    .menu-wrapper{
+        height: 4249px;
+    }
+}

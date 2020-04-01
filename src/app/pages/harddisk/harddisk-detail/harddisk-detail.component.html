@@ -1,0 +1,64 @@
+<div class="p-1">
+    <div>
+        <div class="breadcrumbme-menu">
+            <nav class="breadcrumb has-arrow-separator has-text-weight-medium" aria-label="breadcrumbs">
+                <ul>
+                    <li><a routerLink="/"> Dashboard</a></li>
+                    <li><a routerLink="/harddisk" aria-current="page">Maintenance</a></li>
+                    <li><a routerLink="/harddisk" aria-current="page">HardDisk</a></li>
+                    <li class="is-active"><a href="#" aria-current="page">Detail</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="page-body">
+        <article class="panel is-primary" style="border-radius: 0px;padding: 1em;">
+            <p class="panel-heading" style="border-radius: 0px;font-weight: 1;">
+                Maintenance &raquo; {{actionType}} HardDisk
+            </p>
+            <div class="panel-block">
+                <div class="column column is-6 is-offset-3" *ngIf="functionStatus">
+                    <div class="notification is-primary is-light has-text-centered">
+                        <button class="delete"></button>
+                        <strong>Record has been successfully {{functionUsed}}</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column column is-6 is-offset-3">
+                <form (ngSubmit)="functionState===false?submitInsertRecord():submitEditRecord()" #harddiskForm="ngForm">
+                    <div class="field" *ngIf="functionState">
+                        <label class="label">HardDisk ID</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="HardDisk ID" [(ngModel)]="id" name="id"
+                                [disabled]="true">
+                        </div>
+                        <!-- <p class="help">HardDisk ID is required</p> -->
+                    </div>
+                    <div class="field">
+
+                        <label class="label">HardDisk Name</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="HardDisk Name" [(ngModel)]="size"
+                                #sizeInput="ngModel" name="size" required />
+                        </div>
+                        <p class="help is-danger" *ngIf="sizeInput.invalid && sizeInput.touched">
+                            HardDisk Name is required
+                        </p>
+                    </div>
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button class="button is-link" [disabled]="harddiskForm.invalid">Submit Record</button>
+                        </div>
+                        <div class="control">
+                            <button class="button is-link is-light" routerLink="/harddisk">Go Back</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-block">
+                &nbsp;
+            </div>
+        </article>
+    </div>
+</div>
