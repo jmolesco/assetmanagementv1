@@ -29,7 +29,7 @@ export class HarddiskListComponent implements OnInit {
   orderBy:number=0;
   orderType:number=0;
   searchBy:number=0;
-  
+  filterBy:number=0;
 
   ngOnInit(): void {
     //this.recordListLoader(this.currentPage, this.showAll);
@@ -69,7 +69,7 @@ export class HarddiskListComponent implements OnInit {
   }
 
   submitSearch():void{
-    let dataParam = this.parameterGenerator(this.currentPage=1, this.showAll,1, this.keyword, this.orderBy, this.orderType);
+    let dataParam = this.parameterGenerator(this.currentPage=1, this.showAll,1, this.keyword, this.orderBy, this.orderType, this.filterBy);
     this.httpService.getAllHardDisk(dataParam).subscribe(data=>
       {   
          this.harddiskList = data['list'];
@@ -79,14 +79,15 @@ export class HarddiskListComponent implements OnInit {
     );
   }
 
-  parameterGenerator(currentPage, showAll, searchBy?,keyword?, orderBy?, orderType?){
+  parameterGenerator(currentPage, showAll, searchBy?,keyword?, orderBy?, orderType?, filterBy?){
     let parameters = {
       currentPage:currentPage,
       showAll:showAll,
       searchBy:searchBy===undefined || searchBy === 0?"":searchBy,
       keyword:keyword===undefined?"":keyword,
       orderBy:orderBy===undefined || orderBy === 0?"":orderBy,
-      orderType:orderType===undefined || orderType === 0?"":orderType
+      orderType:orderType===undefined || orderType === 0?"":orderType,
+      filterBy:filterBy===undefined || filterBy === 0?"":filterBy,
     }
     return parameters
   }

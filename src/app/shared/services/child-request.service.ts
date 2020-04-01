@@ -23,7 +23,6 @@ export class ChildRequestService {
   }
 
   loadNewPage(totalRecords):void{
-    //console.log(totalRecords);
     this.invokeLoadNewPageComponentFunction.emit(totalRecords);
   }
 
@@ -35,13 +34,15 @@ export class ChildRequestService {
   }
   urlGeneratorGetAll(data:urlInterface){
     let url:authInterface = { 
-          api_url:data.url                      +
+          api_url:data.url                          +
                   "?showAll="+data.showAll          +
                   "&currentPage="+data.currentPage  +
                   "&searchBy="+data.searchBy        +
                   "&Keyword="+data.keyword          +
                   "&orderby="+data.orderBy          +
-                  "&ordertype="+data.orderType};
+                  "&ordertype="+data.orderType      +
+                  "&FilterBy="+data.filterBy
+                };
     return url;              
     //http://localhost:62236/api/categories?showAll=false&currentpage=1&searchBy=2&Keyword=test&orderby=2&ordertype=2
   }

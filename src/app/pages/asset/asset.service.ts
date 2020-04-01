@@ -44,9 +44,11 @@ export class AssetService {
       searchBy:parameters.searchBy,
       keyword:parameters.keyword,
       orderBy:parameters.orderBy,
-      orderType:parameters.orderType
+      orderType:parameters.orderType,
+      filterBy:parameters.filterBy
     };  
     let url = this.httpChildeRequest.urlGeneratorGetAll(urlInputs);
+    console.log(url);
     return this.httpBaseRequest.getResponseCall(url);
   }
   public getDetailViaIDAsset(id:number):Observable<assetInterface>{

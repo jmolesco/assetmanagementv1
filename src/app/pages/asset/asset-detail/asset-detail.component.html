@@ -23,254 +23,434 @@
                     </div>
                 </div>
             </div>
-            <div class="columns is-variable" >
-                <br>
-                <div  class="column is-6-desktop is-6-tablet" >
-                    <div class="field" *ngIf="functionState">
-                        <label class="label">Asset ID</label>
-                        <div class="control">
-                            <input class="input" type="text" placeholder="HardDisk ID" [(ngModel)]="id" name="id"
-                                [disabled]="true">
+            <div class="fillers"><br /></div>
+            <form (ngSubmit)="functionState===false?submitInsertRecord():submitEditRecord()" #detailForm="ngForm">
+                <div class="columns is-variable">
+                    <div class="column is-4-desktop is-4-tablet">
+                        <div class="field" *ngIf="functionState">
+                            <label class="label">Asset ID</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="HardDisk ID" [(ngModel)]="id" name="id"
+                                    [disabled]="true">
+                            </div>
                         </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Serial No</label>
-                        <div class="control">
-                            <input class="input" type="text" placeholder="Serial No" [(ngModel)]="serialNo"
-                                #serialNoInput="ngModel" name="serialNo" required />
+                        <div class="field">
+                            <label class="label">Serial No</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="Serial No" [(ngModel)]="serialNo"
+                                    #serialNoInput="ngModel" name="serialNo" required />
+                            </div>
+                            <p class="help is-danger" *ngIf="serialNoInput.invalid && serialNoInput.touched">
+                                Serial No is required
+                            </p>
                         </div>
-                        <p class="help is-danger" *ngIf="serialNoInput.invalid && serialNoInput.touched">
-                            Serial No is required
-                        </p>
-                    </div>
-                    <div class="field">
+                        <div class="field">
 
-                        <label class="label">Name</label>
-                        <div class="control">
-                            <input class="input" type="text" placeholder="Name" [(ngModel)]="name"
-                                #nameInput="ngModel" name="name" required />
+                            <label class="label">Name</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="Name" [(ngModel)]="name"
+                                    #nameInput="ngModel" name="name" required />
+                            </div>
+                            <p class="help is-danger" *ngIf="nameInput.invalid && nameInput.touched">
+                                Name is required
+                            </p>
                         </div>
-                        <p class="help is-danger" *ngIf="nameInput.invalid && nameInput.touched">
-                            Name is required
-                        </p>
-                    </div>
-                    <div class="field">
-                        <label class="label">Asset Tag</label>
-                        <div class="control">
-                            <input class="input" type="text" placeholder="Asset Tag" [(ngModel)]="assetTag"
-                                #assetTagInput="ngModel" name="assetTag" required />
+                        <div class="field">
+                            <label class="label">Asset Tag</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="Asset Tag" [(ngModel)]="assetTag"
+                                    #assetTagInput="ngModel" name="assetTag" required />
+                            </div>
+                            <p class="help is-danger" *ngIf="assetTagInput.invalid && assetTagInput.touched">
+                                Asset Tag is required
+                            </p>
                         </div>
-                        <p class="help is-danger" *ngIf="assetTagInput.invalid && assetTagInput.touched">
-                            Asset Tag is required
-                        </p>
-                    </div>
-                    <div class="field">
-                        <label class="label">Assigned To</label>
-                        <div class="control">
-                            <input class="input" type="text" placeholder="Assigned To" [(ngModel)]="assignedTo"
-                                #assignedToInput="ngModel" name="assignedTo" required />
+                        <div class="field">
+                            <label class="label">Assigned To</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="Assigned To" [(ngModel)]="assignedTo"
+                                    #assignedToInput="ngModel" name="assignedTo" required />
+                            </div>
+                            <p class="help is-danger" *ngIf="assignedToInput.invalid && assignedToInput.touched">
+                                Assigned To is required
+                            </p>
                         </div>
-                        <p class="help is-danger" *ngIf="assignedToInput.invalid && assignedToInput.touched">
-                            Assigned To is required
-                        </p>
-                    </div>
-                    <div class="field">
-                        <label class="label">Supplier Name</label>
-                        <div class="control">
-                            <div class="select is-fullwidth">
-                                <select [(ngModel)]="supplierId" #supplierIdInput="ngModel" name="supplierId">
-                                    <option value="0" selected>--Choose your Supplier--</option>  
-                                    <option *ngFor="let supplier of supplierList"  
-                                            value={{supplier.id}} 
+                        <div class="field">
+                            <label class="label">Supplier Name</label>
+                            <div class="field has-addons">
+                                <div class="control is-expanded">
+                                    <div class="select is-fullwidth">
+                                        <select [(ngModel)]="supplierId" #supplierIdInput="ngModel" name="supplierId">
+                                            <option *ngFor="let supplier of supplierList" value={{supplier.id}}>
+                                                {{supplier.name}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <button type="submit" class="button is-primary">Choose</button>
+                                </div>
+                                <p class="help is-danger" *ngIf="supplierIdInput.invalid && supplierIdInput.touched">
+                                    Supplier Name is required
+                                </p>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Model Name</label>
+                            <div class="field has-addons">
+                                <div class="control is-expanded">
+                                    <div class="select is-fullwidth">
+                                        <select [(ngModel)]="modelId" #modelIdInput="ngModel" name="modelId">
+                                            <option *ngFor="let model of modelList" value={{model.id}}>
+                                                {{model.name}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <button type="submit" class="button is-primary">Choose</button>
+                                </div>
+                                <p class="help is-danger" *ngIf="modelIdInput.invalid && modelIdInput.touched">
+                                    Model Name is required
+                                </p>
 
-                                            >  
-                                        {{supplier.name}}  
-                                    </option>  
-                                </select>
                             </div>
-                        </div>
-                        <p class="help is-danger" *ngIf="supplierIdInput.invalid && supplierIdInput.touched">
-                            Supplier Name is required
-                        </p>
-                    </div>
-                    <div class="field">
-                        <label class="label">Model Name</label>
-                        <div class="control">
-                            <div class="select">
-                                <select [(ngModel)]="modelId" #modelIdInput="ngModel" name="modelId">
-                                </select>
-                            </div>
-                        </div>
-                        <p class="help is-danger" *ngIf="modelIdInput.invalid && modelIdInput.touched">
-                            Model Name is required
-                        </p>
-                    </div>
-                    <div class="field">
-                        <label class="label">Manufacturer Name</label>
-                        <div class="control">
-                            <div class="select">
-                                <select [(ngModel)]="manufacturerId" #manufacturerIdIdInput="ngModel"
-                                    name="manufacturerId">
-                                </select>
-                            </div>
-                        </div>
-                        <p class="help is-danger"
-                            *ngIf="manufacturerIdIdInput.invalid && manufacturerIdIdInput.touched">
-                            Manufacturer Name is required
-                        </p>
-                    </div>
-                    <div class="field">
-                        <label class="label">Category Name</label>
-                        <div class="control">
-                            <div class="select">
-                                <select [(ngModel)]="categoryId" #categoryIdIdInput="ngModel" name="categoryId">
-                                </select>
-                            </div>
-                        </div>
-                        <p class="help is-danger" *ngIf="categoryIdIdInput.invalid && categoryIdIdInput.touched">
-                            Category Name is required
-                        </p>
-                    </div>
-                    <div class="field">
-                        <label class="label">Purchase Date</label>
-                        <div class="control">
-                            <input class="input" type="date" placeholder="Purchase Date" [(ngModel)]="purchaseDate"
-                                #purchaseDateInput="ngModel" name="purchaseDate" required />
-                        </div>
-                        <p class="help is-danger" *ngIf="purchaseDateInput.invalid && purchaseDateInput.touched">
-                            Purchase Date is required
-                        </p>
-                    </div>
-                    <div class="field">
-                        <label class="label">Purchase Cost</label>
-                        <div class="control">
-                            <input class="input" type="text" placeholder="Purchase Cost" [(ngModel)]="purchaseCost"
-                                #purchaseCostInput="ngModel" name="purchaseCost" required />
-                        </div>
-                        <p class="help is-danger" *ngIf="purchaseCostInput.invalid && purchaseCostInput.touched">
-                            Purchase Cost is required
-                        </p>
-                    </div>
-                    
-                </div>
-                <div  class="column is-6-desktop is-6-tablet">
-                    <div class="field">
-                        <label class="label">Warranty</label>
-                        <div class="control">
-                            <input class="input" type="text" placeholder="Warranty" [(ngModel)]="warranty"
-                                #warrantyInput="ngModel" name="warranty" required />
-                        </div>
-                        <p class="help is-danger" *ngIf="warrantyInput.invalid && warrantyInput.touched">
-                            Warranty is required
-                        </p>
-                    </div>
-                    <div class="field">
-                        <label class="label">PO No</label>
-                        <div class="control">
-                            <input class="input" type="text" placeholder="PO No" [(ngModel)]="poNo"
-                                #poNoInput="ngModel" name="poNo" required />
-                        </div>
-                        <p class="help is-danger" *ngIf="poNoInput.invalid && poNoInput.touched">
-                            PO No is required
-                        </p>
-                    </div>
-                    <div class="field">
-                        <label class="label">Battery</label>
-                        <div class="control">
-                            <input class="input" type="text" placeholder="Battery" [(ngModel)]="battery"
-                                #batteryInput="ngModel" name="battery" required />
-                        </div>
-                        <p class="help is-danger" *ngIf="batteryInput.invalid && batteryInput.touched">
-                            Battery is required
-                        </p>
-                    </div>
-                    <div class="field">
-                        <label class="label">Adapter</label>
-                        <div class="control">
-                            <input class="input" type="text" placeholder="Adapter" [(ngModel)]="adapter"
-                                #adapterInput="ngModel" name="adapter" required />
-                        </div>
-                        <p class="help is-danger" *ngIf="adapterInput.invalid && adapterInput.touched">
-                            Adapter is required
-                        </p>
-                    </div>
-                    <div class="field">
-                        <label class="label">Delivery Date</label>
-                        <div class="control">
-                            <input class="input" type="text" placeholder="Delivery Date" [(ngModel)]="deliveryDate"
-                                #deliveryDateInput="ngModel" name="deliveryDate" required />
-                        </div>
-                        <p class="help is-danger" *ngIf="deliveryDateInput.invalid && deliveryDateInput.touched">
-                            Delivery Date is required
-                        </p>
-                    </div>
 
-                    <div class="field">
-                        <label class="label">DR No</label>
-                        <div class="control">
-                            <input class="input" type="text" placeholder="PO No" [(ngModel)]="drNo"
-                                #drNoInput="ngModel" name="drNo" required />
                         </div>
-                        <p class="help is-danger" *ngIf="drNoInput.invalid && drNoInput.touched">
-                            DR No is required
-                        </p>
-                    </div>
-                    <div class="field">
-                        <label class="label">SI No</label>
-                        <div class="control">
-                            <input class="input" type="text" placeholder="SI No" [(ngModel)]="siNo"
-                                #siNoInput="ngModel" name="siNo" required />
+                        <div class="field">
+                            <label class="label">Manufacturer Name</label>
+                            <div class="field has-addons">
+                                <div class="control is-expanded">
+                                    <div class="select is-fullwidth">
+                                        <select [(ngModel)]="manufacturerId" #manufacturerIdIdInput="ngModel"
+                                            name="manufacturerId">
+                                            <option *ngFor="let manufacturer of manufacturerList"
+                                                value={{manufacturer.id}}>
+                                                {{manufacturer.name}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <button type="submit" class="button is-primary">Choose</button>
+                                </div>
+                                <p class="help is-danger"
+                                    *ngIf="manufacturerIdIdInput.invalid && manufacturerIdIdInput.touched">
+                                    Manufacturer Name is required
+                                </p>
+                            </div>
                         </div>
-                        <p class="help is-danger" *ngIf="siNoInput.invalid && siNoInput.touched">
-                            SI No is required
-                        </p>
-                    </div>
-                    <div class="field">
-                        <label class="label">Mac Address</label>
-                        <div class="control">
-                            <input class="input" type="text" placeholder="Mac Address" [(ngModel)]="macAddress"
-                                #macAddressInput="ngModel" name="macAddress" required />
+                        <div class="field">
+                            <label class="label">Category Name</label>
+                            <div class="field has-addons">
+                                <div class="control is-expanded">
+                                    <div class="select is-fullwidth">
+                                        <select [(ngModel)]="categoryId" #categoryIdIdInput="ngModel" name="categoryId">
+                                            <option *ngFor="let category of categoryList" value={{category.id}}>
+                                                {{category.name}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <button type="submit" class="button is-primary">Choose</button>
+                                </div>
+                                <p class="help is-danger"
+                                    *ngIf="categoryIdIdInput.invalid && categoryIdIdInput.touched">
+                                    Category Name is required
+                                </p>
+                            </div>
                         </div>
-                        <p class="help is-danger" *ngIf="macAddressInput.invalid && macAddressInput.touched">
-                            Mac Address is required
-                        </p>
+                        
+
                     </div>
-                    <div class="field">
-                        <label class="label">IP Address</label>
-                        <div class="control">
-                            <input class="input" type="text" placeholder="IP Address" [(ngModel)]="ipAddress"
-                                #ipAddressInput="ngModel" name="ipAddress" required />
+                    <div class="column is-4-desktop is-4-tablet">
+                        <div class="field">
+                            <label class="label">Purchase Date</label>
+                            <div class="control">
+                                <input class="input" type="date" placeholder="Purchase Date" [(ngModel)]="purchaseDate"
+                                    #purchaseDateInput="ngModel" name="purchaseDate" required />
+                            </div>
+                            <p class="help is-danger" *ngIf="purchaseDateInput.invalid && purchaseDateInput.touched">
+                                Purchase Date is required
+                            </p>
                         </div>
-                        <p class="help is-danger" *ngIf="ipAddressInput.invalid && ipAddressInput.touched">
-                            IP Address is required
-                        </p>
+                        <div class="field">
+                            <label class="label">Purchase Cost</label>
+                            <div class="field has-addons">
+                                <p class="control is-primary">
+                                    <span class="select">
+                                        <select>
+                                            <option>$</option>
+                                            <option>£</option>
+                                            <option>€</option>
+                                        </select>
+                                    </span>
+                                </p>
+                                <div class="control is-expanded">
+                                    <input class="input is-fullwidth" type="text" placeholder="Purchase Cost"
+                                        [(ngModel)]="purchaseCost" #purchaseCostInput="ngModel" name="purchaseCost"
+                                        required />
+                                </div>
+
+                            </div>
+                            <p class="help is-danger" *ngIf="purchaseCostInput.invalid && purchaseCostInput.touched">
+                                Purchase Cost is required
+                            </p>
+                        </div>
+                        <div class="field">
+                            <label class="label">Processor Name</label>
+                            <div class="field has-addons">
+                                <div class="control is-expanded">
+                                    <div class="select is-fullwidth">
+                                        <select [(ngModel)]="processorId" #processorIdInput="ngModel"
+                                            name="processorId">
+                                            <option *ngFor="let processor of processorList" value={{processor.id}}>
+                                                {{processor.name}}
+                                            </option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="control">
+                                    <button type="submit" class="button is-primary">Choose</button>
+                                </div>
+                            </div>
+
+
+                            <p class="help is-danger" *ngIf="processorIdInput.invalid && processorIdInput.touched">
+                                Processor Name is required
+                            </p>
+                        </div>
+                        <div class="field">
+                            <label class="label">PO No</label>
+                            <div class="field has-addons">
+                                <p class="control">
+                                    <a class="button is-primary">
+                                        P00000#
+                                    </a>
+                                </p>
+                                <div class="control is-expanded">
+                                    <input class="input is-fullwidth" type="text" placeholder="PO No" [(ngModel)]="poNo"
+                                        #poNoInput="ngModel" name="poNo" required />
+                                </div>
+
+                            </div>
+                            <p class="help is-danger" *ngIf="poNoInput.invalid && poNoInput.touched">
+                                PO No is required
+                            </p>
+                        </div>
+                        <div class="field">
+                            <label class="label">Battery</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="Battery" [(ngModel)]="battery"
+                                    #batteryInput="ngModel" name="battery" required />
+                            </div>
+                            <p class="help is-danger" *ngIf="batteryInput.invalid && batteryInput.touched">
+                                Battery is required
+                            </p>
+                        </div>
+                        <div class="field">
+                            <label class="label">Adapter</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="Adapter" [(ngModel)]="adapter"
+                                    #adapterInput="ngModel" name="adapter" required />
+                            </div>
+                            <p class="help is-danger" *ngIf="adapterInput.invalid && adapterInput.touched">
+                                Adapter is required
+                            </p>
+                        </div>
+                        <div class="field">
+                            <label class="label">Memory Size</label>
+                            <div class="field has-addons">
+                                <div class="control is-expanded">
+                                    <div class="select is-fullwidth">
+                                        <select [(ngModel)]="memoryId" #memoryIdInput="ngModel" name="memoryId">
+                                            <option *ngFor="let memory of memoryList" value={{memory.id}}>
+                                                {{memory.size}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <button type="submit" class="button is-primary">Choose</button>
+                                </div>
+                            </div>
+                            <p class="help is-danger" *ngIf="memoryIdInput.invalid && memoryIdInput.touched">
+                                Memory Size is required
+                            </p>
+                        </div>
+                        <div class="field">
+                            <label class="label">Hard Disk Size</label>
+                            <div class="field has-addons">
+                                <div class="control is-expanded">
+                                    <div class="select is-fullwidth">
+                                        <select [(ngModel)]="harddiskId" #harddiskIdInput="ngModel" name="harddiskId">
+                                            <option *ngFor="let harddisk of harddiskList" value={{harddisk.id}}>
+                                                {{harddisk.size}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <button type="submit" class="button is-primary">Choose</button>
+                                </div>
+                            </div>
+
+                            <p class="help is-danger" *ngIf="harddiskIdInput.invalid && harddiskIdInput.touched">
+                                Hard Disk Size is required
+                            </p>
+                        </div>
+                        <div class="field">
+                            <label class="label">VideoCard Size</label>
+                            <div class="field has-addons">
+                                <div class="control is-expanded">
+                                    <div class="select is-fullwidth">
+                                        <select [(ngModel)]="videocardId" #videocardIdInput="ngModel"
+                                            name="videocardId">
+                                            <option *ngFor="let videocard of videocardList" value={{videocard.id}}>
+                                                {{videocard.size}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <button type="submit" class="button is-primary">Choose</button>
+                                </div>
+                            </div>
+                            <p class="help is-danger" *ngIf="videocardIdInput.invalid && videocardIdInput.touched">
+                                VideoCard is required
+                            </p>
+                        </div>
+                   
                     </div>
-                    <div class="field">
-                        <label class="label">Status</label>
-                        <div class="control">
+                    <div class="column is-4-desktop is-4-tablet">
+                        <div class="field">
+                            <label class="label">Warranty</label>
+                            <div class="field has-addons">
+                                <div class="control">
+                                    <button type="submit" class="button is-primary"># of Months</button>
+                                </div>
+                                <div class="control is-expanded">
+                                    <input class="input is-fullwidth" type="text" placeholder="Warranty"
+                                        [(ngModel)]="warranty" #warrantyInput="ngModel" name="warranty" required />
+                                </div>
+                            </div>
+                            <p class="help is-danger" *ngIf="warrantyInput.invalid && warrantyInput.touched">
+                                Warranty is required
+                            </p>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Delivery Date</label>
+                            <div class="control">
+                                <!-- <input type="date" #myDate [value]="demoUser.date | date:'yyyy-MM-dd'" (input)="demoUser.date=parseDate($event.target.value)" /> -->
+                                <input class="input" type="date" placeholder="Delivery Date" [(ngModel)]="deliveryDate"
+                                    #deliveryDateInput="ngModel" name="deliveryDate" id="deliveryDate" required />
+                            </div>
+                            <p class="help is-danger" *ngIf="deliveryDateInput.invalid && deliveryDateInput.touched">
+                                Delivery Date is required
+                            </p>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">DR No</label>
+                            <div class="field has-addons">
+                                <div class="control">
+                                    <button type="submit" class="button is-primary">DR00000#</button>
+                                </div>
+                                <div class="control is-expanded">
+                                    <input class="input is-fullwidth" type="text" placeholder="DR No" [(ngModel)]="drNo"
+                                        #drNoInput="ngModel" name="drNo" required />
+                                </div>
+                            </div>
+                            <p class="help is-danger" *ngIf="drNoInput.invalid && drNoInput.touched">
+                                DR No is required
+                            </p>
+                        </div>
+                        <div class="field">
+                            <label class="label">SI No</label>
+                            <div class="field has-addons">
+                                <div class="control">
+                                    <button type="submit" class="button is-primary">SI000000#</button>
+                                </div>
+                                <div class="control is-expanded">
+                                    <input class="input is-fullwidth" type="text" placeholder="SI No" [(ngModel)]="siNo"
+                                        #siNoInput="ngModel" name="siNo" required />
+                                </div>
+                            </div>
+                            <p class="help is-danger" *ngIf="siNoInput.invalid && siNoInput.touched">
+                                SI No is required
+                            </p>
+                        </div>
+                        <div class="field">
+                            <label class="label">Mac Address</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="Mac Address" [(ngModel)]="macAddress"
+                                    #macAddressInput="ngModel" name="macAddress" required />
+                            </div>
+                            <p class="help is-danger" *ngIf="macAddressInput.invalid && macAddressInput.touched">
+                                Mac Address is required
+                            </p>
+                        </div>
+                        <div class="field">
+                            <label class="label">IP Address</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="IP Address" [(ngModel)]="ipAddress"
+                                    #ipAddressInput="ngModel" name="ipAddress" required />
+                            </div>
+                            <p class="help is-danger" *ngIf="ipAddressInput.invalid && ipAddressInput.touched">
+                                IP Address is required
+                            </p>
+                        </div>
+                        <div class="field">
+                            <label class="label">Status</label>
+                            <div class="field has-addons">
+                                <div class="control is-expanded">
+                                    <div class="select is-fullwidth">
+                                        <select [(ngModel)]="status" #statusInput="ngModel" name="status">
+                                            <option *ngFor="let item of statusList; index as i" value="{{i + 1}}">
+                                                {{statusList[i]}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <button type="submit" class="button is-primary">Choose</button>
+                                </div>
+                            </div>
+                            <!-- <div class="control">
                             <input class="input" type="text" placeholder="Status" [(ngModel)]="status"
                                 #statusInput="ngModel" name="status" required />
+                        </div> -->
+                            <p class="help is-danger" *ngIf="statusInput.invalid && statusInput.touched">
+                                Status is required
+                            </p>
                         </div>
-                        <p class="help is-danger" *ngIf="statusInput.invalid && statusInput.touched">
-                            Status is required
-                        </p>
-                    </div>
 
 
 
-                    <div class="field">
-                        <label class="label">Notes</label>
-                        <div class="control">
-                            <textarea class="input" rows="15" placeholder="Notes" [(ngModel)]="notes"
-                                #notesInput="ngModel" name="notes" required ></textarea>
+                        <div class="field">
+                            <label class="label">Notes</label>
+                            <div class="control is-expanded">
+                                <textarea class="textarea" rows="4" placeholder="Notes" [(ngModel)]="notes"
+                                    #notesInput="ngModel" name="notes" required></textarea>
+                            </div>
+                            <p class="help is-danger" *ngIf="notesInput.invalid && notesInput.touched">
+                                Notes is required
+                            </p>
                         </div>
-                        <p class="help is-danger" *ngIf="notesInput.invalid && notesInput.touched">
-                            Notes is required
-                        </p>
                     </div>
                 </div>
-            </div>
-
+                <div class="field is-grouped is-grouped-centered">
+                    <div class="control">
+                        <button class="button is-link" [disabled]="detailForm.invalid">Submit Record</button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-link is-light" routerLink="/asset">Go Back</button>
+                    </div>
+                </div>
+            </form>
             <div class="panel-block">
                 &nbsp;
             </div>

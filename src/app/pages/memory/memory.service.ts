@@ -36,15 +36,16 @@ export class MemoryService {
    return response;
  }
  public getAllMemory(parameters):Observable<memoryInterface>{
-   let urlInputs:urlInterface = {
-     url:this.url,
-     currentPage:parameters.currentPage,
-     showAll:parameters.showAll,
-     searchBy:parameters.searchBy,
-     keyword:parameters.keyword,
-     orderBy:parameters.orderBy,
-     orderType:parameters.orderType
-   };  
+  let urlInputs:urlInterface = {
+    url:this.url,
+    currentPage:parameters.currentPage,
+    showAll:parameters.showAll,
+    searchBy:parameters.searchBy,
+    keyword:parameters.keyword,
+    orderBy:parameters.orderBy,
+    orderType:parameters.orderType,
+    filterBy:parameters.filterBy
+  };    
    let url = this.httpChildeRequest.urlGeneratorGetAll(urlInputs);
    return this.httpBaseRequest.getResponseCall(url);
  }

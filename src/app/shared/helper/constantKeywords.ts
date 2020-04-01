@@ -16,5 +16,6 @@ export const constantKeywords = {
     actionEdit      :   "Edit",
     Available       :   "Available",
     Archive         :   "Archive",
-    Deployed        :   "Deployed"
+    Deployed        :   "Deployed",
+    StatusArray          :   ['Available','Archive', 'Deployed']
 }
