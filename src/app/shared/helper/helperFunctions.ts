@@ -4,3 +4,10 @@ export function convertStringToDate(date) {
   console.log(momentDate);
   return momentDate;
 }
+export function convertDataIntoDate(objData){
+  console.log(objData);
+   for(let obj in objData){
+     console.log(obj);
+   }
+
+}
