@@ -8,6 +8,7 @@ export const constantKeywords = {
     supplier        :   "suppliers",
     videocard       :   "sizes/videocard",
     asset           :   "assets",
+    user           :    "users",
     recordAdded     :   "added",
     recordEdited    :   "updated",
     recordDeleted   :   "deleted",
