@@ -6,8 +6,8 @@ export function convertStringToDate(date) {
 }
 export function convertDataIntoDate(objData){
   console.log(objData);
-   for(let obj in objData){
-     console.log(obj);
-   }
+ objData.array.forEach(element => {
+   
+ });
 
 }

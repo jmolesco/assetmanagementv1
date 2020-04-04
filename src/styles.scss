@@ -51,6 +51,7 @@ body {
   cursor: pointer;
 }
 
+
 /****MOBILE PHONE VIEW
     AUTHOR: JOHN MARK OLESCO
     DATE CREATED: MARCH 26, 2020
@@ -133,6 +134,11 @@ body {
   @media (min-height: 860px) and (min-width: 412px) {
     .menu-wrapper{
         height: 800px;
+    }
+  }
+  @media (min-height: 667px) and (min-width: 414px) {
+    .menu-wrapper{
+        height: 595px;
     }
   }
   @media (min-height: 736px) and (min-width: 414px) {

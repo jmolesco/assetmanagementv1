@@ -1,102 +1,132 @@
 <div class="p-1">
   <div>
     <div class="breadcrumbme-menu">
-        <nav class="breadcrumb has-arrow-separator has-text-weight-medium" aria-label="breadcrumbs">
-          <ul>
-            <li><a routerLink="/"> Dashboard</a></li>
-            <!-- <li class="is-active"><a href="#" aria-current="page">Maintenance</a></li>
+      <nav class="breadcrumb has-arrow-separator has-text-weight-medium" aria-label="breadcrumbs">
+        <ul>
+          <li><a routerLink="/"> Dashboard</a></li>
+          <!-- <li class="is-active"><a href="#" aria-current="page">Maintenance</a></li>
             <li class="is-active"><a href="#" aria-current="page">Dashboard</a></li> -->
-          </ul>
-        </nav> 
+        </ul>
+      </nav>
     </div>
   </div>
+  <div class="columns is-variable is-desktop">
+    <div class="column is-3-desktop is-6-tablet">
+      <article class="message is-primary" style="border-radius: 0px;padding: 1em;">
+        <div class="message-header" style="border-radius: 0px;font-weight: 1;">
+          Asset      
+        </div>
+        <div class="message-body has-text-centered">
+          <p class="is-size-3">{{asset}}</p>
+        </div>
+      </article>
+      <article class="message is-danger" style="border-radius: 0px;padding: 1em;">
+        <div class="message-header" style="border-radius: 0px;font-weight: 1;">
+          Category      
+        </div>
+        <div class="message-body has-text-centered">
+          <p class="is-size-3">{{category}}</p>
+        </div>
+      </article>
+      <article class="message is-info" style="border-radius: 0px;padding: 1em;">
+        <div class="message-header" style="border-radius: 0px;font-weight: 1;">
+          Manufacturer      
+        </div>
+        <div class="message-body has-text-centered">
+          <p class="is-size-3">{{manufacturer}}</p>
+        </div>
+      </article>
+      <article class="message is-warning" style="border-radius: 0px;padding: 1em;">
+        <div class="message-header has-text-white" style="border-radius: 0px;font-weight: 1;">
+          Supplier      
+        </div>
+        <div class="message-body has-text-centered">
+          <p class="is-size-3">{{supplier}}</p>
+        </div>
+      </article>
+    </div>
+    <div class="column is-3-desktop is-6-tablet">
+      <article class="message is-link" style="border-radius: 0px;padding: 1em;">
+        <div class="message-header has-text-white" style="border-radius: 0px;font-weight: 1;">
+          Model      
+        </div>
+        <div class="message-body has-text-centered">
+          <p class="is-size-3">{{model}}</p>
+        </div>
+      </article>
+      <article class="message is-warning is-light" style="border-radius: 0px;padding: 1em;">
+        <div class="message-header has-text-white" style="border-radius: 0px;font-weight: 1;">
+          Processor      
+        </div>
+        <div class="message-body has-text-centered">
+          <p class="is-size-3">{{processor}}</p>
+        </div>
+      </article>
+      <article class="message is-success" style="border-radius: 0px;padding: 1em;">
+        <div class="message-header has-text-white" style="border-radius: 0px;font-weight: 1;">
+          User      
+        </div>
+        <div class="message-body has-text-centered">
+          <p class="is-size-3">{{user}}</p>
+        </div>
+      </article>
+      <article class="message is-dark" style="border-radius: 0px;padding: 1em;">
+        <div class="message-header has-text-white" style="border-radius: 0px;font-weight: 1;">
+          Supplier      
+        </div>
+        <div class="message-body has-text-centered">
+          <p class="is-size-3">1001</p>
+        </div>
+      </article>
+    </div>
+    <div class="column is-6-desktop is-6-tablet">
+      <div class="page-body">
+        <article class="panel is-primary" style="border-radius: 0px;padding: 1em;">
+          <p class="panel-heading" style="border-radius: 0px;font-weight: 1;">
+            Today's Activities  
+           <span [ngClass]="['tag','is-danger','is-pulled-right']">Edited Record</span> <span class="is-pulled-right">&nbsp;&nbsp;</span><span [ngClass]="['tag','is-link','is-pulled-right' ]">Added Record</span>
 
-    <div class="columns  is-variable is-desktop">
-      <div class="column">
-        <div class="card has-background-primary has-text-white">
-          <div class="card-header">
-            <div class="card-header-title has-text-white">
-              <i class="fas fa-laptop-medical"></i> &nbsp;&nbsp;ASSET
+          </p>
+          <br />
+          <div class="column is-10 is-offset-1" style="background-color: #efefef;">
+            <div class="column is-12" style="height: 592px;overflow-y: scroll;">
+              <div class="tile is-parent is-vertical" *ngFor="let dashboard of detailList; index as i">
+                <article [ngClass]="['tile','is-child','notification',(dashboard.actionType===1)?'is-info':'is-danger']"
+                  routerLink="dashboard.menu/dashboard.id" 
+                >
+                  <p class="title">{{dashboard.menu}}</p>
+                  <p class="subtitle">Name: {{dashboard.name}}</p>
+                </article>
+              </div>
+              <!-- <div class="list">
+                <span class="list-item">
+                  1 record added in supplier
+                </span>
+                <span class="list-item">
+                  ID
+                </span>
+                <span class="list-item">
+                  1 record added in supplier
+                </span>
+              </div>               -->
             </div>
-          </div>
-          <div class="card-content">
-            <p class="is-size-3">56,590</p>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="card has-background-warning has-text-black">
-          <div class="card-header">
-            <div class="card-header-title has-text-white is-uppercase">
-              CATEGORY
-            </div>
-          </div>
-          <div class="card-content">
-            <p class="is-size-3">55%</p>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="card has-background-info has-text-white">
-          <div class="card-header">
-            <div class="card-header-title has-text-white is-uppercase">
-              Feedback
-            </div>
-          </div>
-          <div class="card-content">
-            <p class="is-size-3">78 %</p>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="card has-background-danger has-text-white">
-          <div class="card-header">
-            <div class="card-header-title has-text-white">Orders</div>
-          </div>
-          <div class="card-content">
-            <p class="is-size-3">425k</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="columns is-variable">
-      <div class="column is-4-desktop is-6-tablet">
-        <article class="message is-info">
-          <div class="message-header">
-            <p>Info</p>
-            <button class="delete" aria-label="delete"></button>
-          </div>
-          <div class="message-body">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            <strong>Pellentesque risus mi</strong>, tempus quis placerat
-            ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
-            fringilla. Nullam gravida purus diam, et dictum
-            <a>felis venenatis</a> efficitur. Aenean ac
-            <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu
-            et sollicitudin porttitor, tortor urna tempor ligula, id
-            porttitor mi magna a neque. Donec dui urna, vehicula et sem
-            eget, facilisis sodales sem.
+           
           </div>
         </article>
       </div>
-      <div class="column is-4-desktop is-6-tablet">
-        <article class="message is-success">
-          <div class="message-header">
-            <p>Info</p>
-            <button class="delete" aria-label="delete"></button>
-          </div>
-          <div class="message-body">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            <strong>Pellentesque risus mi</strong>, tempus quis placerat
-            ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet
-            fringilla. Nullam gravida purus diam, et dictum
-            <a>felis venenatis</a> efficitur. Aenean ac
-            <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu
-            et sollicitudin porttitor, tortor urna tempor ligula, id
-            porttitor mi magna a neque. Donec dui urna, vehicula et sem
-            eget, facilisis sodales sem.
-          </div>
-        </article>
-      </div>
+      <br />
+
     </div>
   </div>
+  <div class="columsn is-variable is-desktop">
+    <div class="page-body">
+      <article class="panel is-primary" style="border-radius: 0px;padding: 1em;">
+        <p class="panel-heading" style="border-radius: 0px;font-weight: 1;">
+          Record Chart
+        </p>
+        <br />
+        <div id="chartContainer" name="chartContainer" style="height: 370px; width: 100%;"></div>
+      </article>
+    </div>  
+  </div>
+</div>
