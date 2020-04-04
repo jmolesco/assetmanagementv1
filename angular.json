@@ -32,7 +32,11 @@
               "node_modules/bulma-tooltip/dist/css/bulma-tooltip.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              //"node_modules/jquery/dist/jquery.min.js",
+              //"node_modules/canvasjs/dist/canvasjs.min.js"
+
+            ]
           },
           "configurations": {
             "production": {
