@@ -22,7 +22,7 @@
     "bulma": "^0.8.1",
     "bulma-tooltip": "^3.0.2",
     "canvasjs": "^1.8.3",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "moment": "^2.24.0",
     "rxjs": "^6.5.4",
     "tslib": "^1.10.0",
