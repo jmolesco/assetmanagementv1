@@ -1,9 +1,29 @@
-<app-header></app-header>
-
-<div class="columns is-variable is-0">
-  <app-sidebar></app-sidebar>
-  <div class="column is-10-desktop is-offset-2-desktop is-9-tablet is-offset-3-tablet is-12-mobile" style="margin-top: 2.75em;">
-    <router-outlet></router-outlet>
+<ng-template [ngIf]="currentUser" [ngIfElse]="loginForm">
+  <app-header></app-header>
+  <div class="columns is-variable is-0">
+    <app-sidebar></app-sidebar>
+    <div class="column is-10-desktop is-offset-2-desktop is-9-tablet is-offset-3-tablet is-12-mobile"
+      style="margin-top: 2.75em;">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-
+</ng-template>
+<ng-template #loginForm>
+  <div class="columns is-variable is-0">
+    <div class="column is-4 is-offset-4" style="margin-top: 2.75em;">
+      <div class="page-body">
+      <article class="panel is-primary" style="border-radius: 0px;padding: 1em;">
+        <p class="panel-heading has-text-centered" style="border-radius: 0px;font-weight: 1;">
+          Asset Management System
+        </p>
+        <br />
+      
+       
+        <div class="column is-8 is-offset-2">
+          <router-outlet></router-outlet>
+        </div>
+      </article>
 </div>
+    </div>
+  </div>
+</ng-template>

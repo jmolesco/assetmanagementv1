@@ -51,7 +51,7 @@ export class UserListComponent implements OnInit {
       {   
          this.userList = data['list'];
 
-         convertDataIntoDate(this.userList);
+        // convertDataIntoDate(this.userList);
      
          this.totalPageList = data["totalPage"]
       } 

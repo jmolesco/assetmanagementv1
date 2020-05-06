@@ -1,0 +1,29 @@
+<div>
+  <form (ngSubmit)="submitLogIn()" #detailForm="ngForm">
+    <div class="notification is-danger is-light has-text-centered" *ngIf="errStatus">
+      {{errMessage}}
+    </div>
+    <div class="field">
+      <label class="label">Username</label>
+      <div class="control">
+        <input class="input" type="text" placeholder="e.g JM Olesco" [(ngModel)]="username" name="username"
+          #usernameInput="ngModel" required>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Password</label>
+      <div class="control">
+        <input class="input" type="password" placeholder="e.g. jmolesco@yahoo.com" [(ngModel)]="password"
+          name="password" #passwordInput="ngModel" required>
+      </div>
+    </div>
+    <div class="field is-grouped">
+      <div class="control">
+        <button class="button is-link" [disabled]="detailForm.invalid">
+          <span *ngIf="loading"><i class="fas fa-spinner fa-spin"></i>&nbsp;</span>
+          Log In</button>
+      </div>
+    </div>
+  </form>
+</div>
