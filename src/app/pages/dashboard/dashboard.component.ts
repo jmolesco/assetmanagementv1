@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from '@dashboard/dashboard.service';
 import  {constantKeywords} from '@shared/shared.module';
-//import * as CanvasJS from '../../../../node_modules/canvasjs/dist/canvasjs.min.js';
 declare var CanvasJS:any;
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',

@@ -10,6 +10,7 @@ export const constantKeywords = {
     asset           :   "assets",
     user            :   "users",
     dashboard       :   "dashboard/",
+    login           :   "users/authenticate",
     dashActivity    :   "activity",
     dashTotalNum    :   "totalrecords",
     dashChart       :   "charts",
