@@ -20,6 +20,7 @@ export class PaginationComponent implements OnInit {
  numberOfPage:number =0;
  previousState:boolean = false;
  nextState:boolean = false;
+ 
  isCurrent:string;
  classState:string;
  currentKey:string = "current_key_";

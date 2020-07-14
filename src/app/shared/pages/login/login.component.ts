@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
         if (this.httpService.currentUserValue) {
           console.log("if here in currentUserValue");
           this.router.navigate(['/']);
-      }
+        }
 
    }
 

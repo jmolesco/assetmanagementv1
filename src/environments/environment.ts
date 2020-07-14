@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  url:"http://jmolesco-001-site1.ctempurl.com/api/"
+  url: "http://jmolesco06-001-site1.ctempurl.com/api/"
+  //url:"http://jmolesco-001-site1.ctempurl.com/api/"
   //url:"http://localhost:62236/api/"
 };
 

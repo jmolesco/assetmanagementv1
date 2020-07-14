@@ -27,23 +27,23 @@ const routes: Routes = [
   {
     path:'dashboard',
     component: DashboardComponent,
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
   //{ path: '', component: HomeComponent, canActivate: [AuthGuard] },
   {
     path:"category",
     loadChildren:()=> import("@pages/pages.module").then(m=>CategoryModule),
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
   {
     path:"manufacturer",
     loadChildren:()=> import("@pages/pages.module").then(m=>ManufacturerModule),
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
   {
     path:"supplier",
     loadChildren:()=> import("@pages/pages.module").then(m=>SupplierModule),
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
   {
     path:"model",
