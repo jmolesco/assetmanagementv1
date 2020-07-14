@@ -23,7 +23,7 @@ export class CategoryListComponent implements OnInit {
 
   //VARIABLES
   categoryList;
-  totalPageList:number=0;
+  totalPageList:number=1;
   currentPage:number = 1;
   showAll:boolean = false;
   keyword:string;
